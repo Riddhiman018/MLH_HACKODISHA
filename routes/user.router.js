@@ -127,7 +127,7 @@ router.get('/notes',async (req,res)=>{
             })
         }
         else{
-            res.status(200).send(result.notes)
+            res.status(200).send(result.Notes)
         }
     })
 })
