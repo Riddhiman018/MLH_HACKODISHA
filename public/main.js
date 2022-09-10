@@ -1,11 +1,34 @@
 import * as THREE from '/build/three.module.js'
-console.log(THREE)
 import {OrbitControls} from './jsm/controls/OrbitControls.js'
 import {GLTFLoader} from './jsm/loaders/GLTFLoader.js'
 import {FontLoader} from './jsm/loaders/FontLoader.js'
 import {TextGeometry} from './jsm/geometries/TextGeometry.js'
 
-console.log(THREE)
+const username = new URL(window.location).searchParams.get('username')
+const submitBtn = document.querySelector('.submitNotes')
+console.log(document.querySelector('#notes').textContent)
+console.log(submitBtn)
+submitBtn.addEventListener('click',async function(e){
+    console.log('Clicked')
+    const text = document.querySelector('#notes').textContent
+    try{
+        const result = await fetch('https://mlhriddhiman.herokuapp.com/notes',{    
+        method:'POST',
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify({
+                username:username,
+                note:text
+            })
+        })
+        if(result){
+            console.log(result)
+        }
+    }catch(error){
+        console.log(error)
+    }
+})
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000)
 const renderer = new THREE.WebGLRenderer({
@@ -74,4 +97,5 @@ function animate(){
   requestAnimationFrame(animate)
   renderer.render(scene,camera)
 }
+
 animate()

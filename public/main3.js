@@ -4,8 +4,6 @@ import {OrbitControls} from './jsm/controls/OrbitControls.js'
 import {GLTFLoader} from './jsm/loaders/GLTFLoader.js'
 import {FontLoader} from './jsm/loaders/FontLoader.js'
 import {TextGeometry} from './jsm/geometries/TextGeometry.js'
-
-console.log(THREE)
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000)
 const renderer = new THREE.WebGLRenderer({

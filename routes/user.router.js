@@ -92,4 +92,10 @@ router.post('/login',async (req,res,next)=>{
         })
     }
 })
+router.post('/notes',async (req,res)=>{
+    console.log(req.body)
+    res.status(200).send({
+        Message:'Note received'
+    })
+})
 module.exports = router
