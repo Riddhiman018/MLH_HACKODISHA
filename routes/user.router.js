@@ -94,8 +94,26 @@ router.post('/login',async (req,res,next)=>{
 })
 router.post('/notes',async (req,res)=>{
     console.log(req.body)
-    res.status(200).send({
-        Message:'Note received'
+    usrschema.findOneAndUpdate({
+        username:req.body.username
+    },{
+        $push:{
+            Notes:{
+                title:req.body.title,
+                content:req.body.note
+            }
+        }
+    },function(error,result){
+        if(error){
+            res.status(500).send({
+                Message:`Error with error message : ${error.message}`
+            })
+        }
+        else{
+            res.status(200).send({
+                Message:'Note saved'
+            })
+        }
     })
 })
 module.exports = router

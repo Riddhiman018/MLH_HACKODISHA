@@ -30,6 +30,8 @@ submitBtn.addEventListener('click',async function(e){
         })
         if(result){
             console.log(result)
+            document.querySelector('#notes').value = 'Note saved successfully'
+            document.querySelector('#title').value = ''
         }
     }catch(error){
         console.log(error)
