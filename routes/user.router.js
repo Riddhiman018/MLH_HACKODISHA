@@ -116,4 +116,19 @@ router.post('/notes',async (req,res)=>{
         }
     })
 })
+router.get('/notes',async (req,res)=>{
+    //reqd username
+    usrschema.findOne({
+        username:req.body.username
+    },function(error,result){
+        if(error){
+            res.status(500).send({
+                Message:`Unknown error with message : ${error.message}`
+            })
+        }
+        else{
+            res.status(200).send(result.notes)
+        }
+    })
+})
 module.exports = router
