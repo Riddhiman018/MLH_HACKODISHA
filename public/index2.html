@@ -127,7 +127,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: green;
   }
   a:hover {
     color: #747bff;
@@ -136,7 +136,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
   canvas{
-    max-width: 500px;
+    max-width: 300px;
   }
 }
     </style>
@@ -153,6 +153,11 @@ button:focus-visible {
     <div id="app"></div>
     <div class="contentContainer">
       <div class="heading"><h1><b>Welcome to Imagine3D...</b></h1>
+        <div class="textContainer">
+            <h4>Swipe 2 fingers away from each other to zoom out</h4>
+            <h4>Swipe 2 fingers closer to each other to zoom in</h4>
+            <h4>Swipe 1 finger to rotate</h4>
+          </div>
       </div>
       <div class="canvas">
         <canvas id="bg" height="100%" width="100%">
