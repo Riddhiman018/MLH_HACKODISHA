@@ -10,7 +10,7 @@ console.log(document.querySelector('#notes').textContent)
 console.log(submitBtn)
 submitBtn.addEventListener('click',async function(e){
     console.log('Clicked')
-    const text = document.querySelector('#notes').textContent
+    const text = document.querySelector('#notes').value
     try{
         const result = await fetch('https://mlhriddhiman.herokuapp.com/notes',{    
         method:'POST',
