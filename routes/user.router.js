@@ -2,6 +2,18 @@ const express = require('express')
 const usrschema = require('../model/user.mongo')
 const bcrypt = require('bcrypt')
 const router = express.Router()
+const tesseract = require('tesseract.js')
+const fs = require('fs')
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination:(req,res,cb)=>{
+        cb(null,'./uploads')
+    },
+    filename:(req,res,cb)=>{
+        cb(null,req.file)
+    }
+})
+const upload = multer({storage:storage})
 router.use(express.json())
 router.get('/hello',(req,res)=>{
     console.log(__dirname)
@@ -130,5 +142,20 @@ router.get('/notes',async (req,res)=>{
             res.status(200).send(result.Notes)
         }
     })
+})
+router.post('/uploadImage',upload.single('image'),async (req,res)=>{
+    try{
+        tesseract.recognize('uploads/'+req.file.filename,
+        'eng',
+        {logger:m=>console.log(m)}).then(({data:{text}})=>{
+            res.status(200).send({
+                Text:text
+            })
+        })
+    }catch(error){
+        res.status(500).send({
+            Message:`${error.Message}`
+        })
+    }
 })
 module.exports = router
