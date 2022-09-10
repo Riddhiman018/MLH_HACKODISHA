@@ -119,7 +119,7 @@ router.post('/notes',async (req,res)=>{
 router.get('/notes',async (req,res)=>{
     //reqd username
     usrschema.findOne({
-        username:req.body.username
+        username:req.query.username
     },function(error,result){
         if(error){
             res.status(500).send({
