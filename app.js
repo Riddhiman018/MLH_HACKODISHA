@@ -7,6 +7,7 @@ const uri = "mongodb+srv://Riddhiman:123@cluster0.gqyxkh7.mongodb.net/MLH_HACKOD
 mongoose.connect(uri)
 const app = express()
 app.use(cors())
+app.set('view engine','ejs')
 app.use(express.static(__dirname+'/public'))
 app.use('/build/',express.static(path.join(__dirname,'node_modules/three/build')));
 app.use('/jsm/',express.static(path.join(__dirname,'node_modules/three/examples/jsm')));

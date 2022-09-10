@@ -9,9 +9,9 @@ const storage = multer.diskStorage({
     destination:(req,res,cb)=>{
         cb(null,'./uploads')
     },
-    filename:(req,res,cb)=>{
-        cb(null,req.file)
-    }
+    // filename:(req,res,cb)=>{
+    //     cb(null,req.file)
+    // }
 })
 const upload = multer({storage:storage})
 router.use(express.json())
@@ -144,6 +144,7 @@ router.get('/notes',async (req,res)=>{
     })
 })
 router.post('/uploadImage',upload.single('image'),async (req,res)=>{
+    console.log(req.file)
     try{
         tesseract.recognize('uploads/'+req.file.filename,
         'eng',
@@ -157,5 +158,8 @@ router.post('/uploadImage',upload.single('image'),async (req,res)=>{
             Message:`${error.Message}`
         })
     }
+})
+router.get('/testOCR',async (req,res)=>{
+    res.render('sampleOCR')
 })
 module.exports = router
