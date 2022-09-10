@@ -9,6 +9,7 @@ const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeig
 const renderer = new THREE.WebGLRenderer({
   canvas:document.querySelector('#bg')
 })
+const username = new URL(window.location).searchParams.get('username')
 const submitBtn = document.querySelector('.submitNotes')
 console.log(document.querySelector('#notes').textContent)
 console.log(submitBtn)
