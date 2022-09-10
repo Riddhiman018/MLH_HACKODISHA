@@ -8,7 +8,32 @@ const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeig
 const renderer = new THREE.WebGLRenderer({
   canvas:document.querySelector('#bg')
 })
-
+const submitBtn = document.querySelector('.submitNotes')
+console.log(document.querySelector('#notes').textContent)
+console.log(submitBtn)
+submitBtn.addEventListener('click',async function(e){
+    console.log('Clicked')
+    const text = document.querySelector('#notes').value
+    const title = document.querySelector('#title').value
+    try{
+        const result = await fetch('https://mlhriddhiman.herokuapp.com/notes',{    
+        method:'POST',
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify({
+                username:username,
+                note:text,
+                title:title
+            })
+        })
+        if(result){
+            console.log(result)
+        }
+    }catch(error){
+        console.log(error)
+    }
+})
 renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth,window.innerHeight)
 camera.position.setZ(100)
