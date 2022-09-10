@@ -60,10 +60,14 @@ body{
 .textContainer{
   border: 2px solid white;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
   padding: 10px;
   margin: 20px;
   background: #707070;
+  justify-content: center;
+  align-items: center;
 }
 body {
   margin: 0;
@@ -178,8 +182,9 @@ button:focus-visible {
         <h2><u><b>Welcome to Imagine3D...</b></u></h2>
         <h2><u>Human Eyes</u></h2>
         <h3>Take Quick Notes</h3>
-        <textarea name="" id="" rows="10"></textarea>
+        <textarea name="" id="notes" rows="10"></textarea>
         <br>
+        <button class="submitNotes">Submit Notes</button>
       </div>
     </div>
     <script type="module" src="./main3.js"></script>
