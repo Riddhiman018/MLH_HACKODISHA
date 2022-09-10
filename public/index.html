@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <style>
+      :root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #00D37F;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+canvas {
+  position: relative;
+  border: 3px solid white;
+  max-width: 1200px;
+  max-height: 800px;
+  border-radius: 20px;
+}
+main{
+  position: absolute;
+  color: white;
+}
+a:hover {
+  color: #535bf2;
+}
+body{
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+}
+.contentContainer{
+  display: flex;
+  position: absolute;
+  padding: 100px;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.textContainer{
+  border: 2px solid white;
+  border-radius: 20px;
+  max-width: 1200px;
+  padding: 10px;
+  margin: 20px;
+  background: #707070;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: blue;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+  canvas{
+    max-width: 500px;
+  }
+}
+    </style>
+     <script type="importmap">
+      {
+          "imports":{
+              "three": "./build/three.module.js",
+              "three/examples/jsm/controls/OrbitControls": "./jsm/controls/OrbitControls.js"
+          }
+      }
+  </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div class="contentContainer">
+      <div class="heading"><h1><b>Welcome to Imagine3D...</b></h1>
+      </div>
+      <div class="canvas">
+        <canvas id="bg" height="100%" width="100%">
+        </canvas>
+      </div>
+      <div class="textContainer">
+        <h2><u><b>Welcome to Imagine3D...</b></u></h2>
+        <h2><u>Human heart</u></h2>
+        <button class="takeNotes">Take Notes</button>
+        <button class="takeQuiz">Take Quiz</button>        
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
