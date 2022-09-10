@@ -9,10 +9,10 @@ router.get('/',(req,res)=>{
     res.send('Hello')
 })
 router.post('/register',async (req,res,next)=>{
-    //email_id
+    //username
     try {
         const usr = await usrschema.findOne({
-            email_id:req.body.email_id
+            username:req.body.username
         })
         //case if user already exists
         if(usr){
@@ -30,12 +30,12 @@ router.post('/register',async (req,res,next)=>{
     }
 },async (req,res)=>{
     try {
-        const email = req.body.email_id
+        const email = req.body.username
         //encrypting
         const salt = await bcrypt.genSalt()
         const hashedpwd = await bcrypt.hash(req.body.password,salt)
         const usr = new usrschema({
-            email_id:email,
+            username:email,
             password:hashedpwd
         })
         //saving user to mongoDB
@@ -55,7 +55,7 @@ router.post('/login',async (req,res,next)=>{
     //get username
     try {
         const usr = await usrschema.findOne({
-            email_id:req.body.email_id
+            username:req.body.username
         })
         //checking user email verification status and registration status
         if(usr){
