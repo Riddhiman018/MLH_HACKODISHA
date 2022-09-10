@@ -1,10 +1,9 @@
 const express = require('express')
 const usrschema = require('../model/user.mongo')
 const bcrypt = require('bcrypt')
-router.use(express.json())
 const router = express.Router()
 router.use(express.json())
-router.get('/',(req,res)=>{
+router.get('/hello',(req,res)=>{
     console.log(__dirname)
     res.send('Hello')
 })
