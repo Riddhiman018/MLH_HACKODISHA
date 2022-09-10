@@ -11,6 +11,7 @@ console.log(submitBtn)
 submitBtn.addEventListener('click',async function(e){
     console.log('Clicked')
     const text = document.querySelector('#notes').value
+    const title = document.querySelector('#title').value
     try{
         const result = await fetch('https://mlhriddhiman.herokuapp.com/notes',{    
         method:'POST',
@@ -19,7 +20,8 @@ submitBtn.addEventListener('click',async function(e){
             },
             body:JSON.stringify({
                 username:username,
-                note:text
+                note:text,
+                title:title
             })
         })
         if(result){
