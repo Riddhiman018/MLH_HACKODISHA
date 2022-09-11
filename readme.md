@@ -1,4 +1,4 @@
-# Imagine3D
+# Imagine3D <img src="https://media2.giphy.com/media/1Bd8msCe9BEnqdLBDp/giphy.gif?cid=ecf05e475mjt0jazepnl0jsh8sn47u4afzvwp22xh5m2vboq&rid=giphy.gif&ct=s" width="80">
 
 Imagine3D is an innovative approach that uses Machine Learning concepts and AR to give students and professionals better understanding of their subject/field. Budding professionals and students pursuing science face a large number of problems in understanding their subjects. This can be attributed to factors like:
 
