@@ -13,6 +13,7 @@ import { TextInput, Button } from "react-native-paper";
 import { useFonts } from "expo-font";
 import axios from "axios";
 import { Snackbar } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const { height, width } = Dimensions.get("window");
 
@@ -81,7 +82,7 @@ const SignUp = ({ navigation }) => {
 
           <View style={styles.btnContainer}>
             <Button
-              onPress={() => {
+              onPress={async () => {
                 if (
                   values.username.trim() &&
                   values.password.trim() &&
@@ -98,6 +99,11 @@ const SignUp = ({ navigation }) => {
                     .catch((err) => {
                       console.log(err);
                     });
+                  try {
+                    await AsyncStorage.setItem("username", values.username);
+                  } catch (err) {
+                    console.log(err);
+                  }
                 } else {
                   alert("Please fill all the fields");
                 }

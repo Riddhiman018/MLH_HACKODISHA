@@ -1,109 +1,46 @@
-import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Button,
-  Image,
-  Dimensions,
-} from "react-native";
-import { useEffect, useRef, useState } from "react";
-import { Camera } from "expo-camera";
-import { shareAsync } from "expo-sharing";
-import * as MediaLibrary from "expo-media-library";
+import * as React from "react";
+import { View, Text } from "react-native";
 
-const { height, width } = Dimensions.get("screen");
+import * as ImagePicker from "expo-image-picker";
 
+const takeAndUploadPhotoAsync = async () => {
+  let result = await ImagePicker.launchCameraAsync({
+    allowsEditing: true,
+    aspect: [4, 3],
+  });
+
+  if (result.cancelled) {
+    return;
+  }
+  let localUri = result.uri;
+  let filename = localUri.split("/").pop();
+  let match = /\.(\w+)$/.exec(filename);
+  let type = match ? `image/${match[1]}` : `image`;
+
+  let formData = new FormData();
+  formData.append("image", { uri: localUri, name: filename, type });
+
+  return await fetch("https://mlhriddhiman.herokuapp.com/uploadImage", {
+    method: "POST",
+    body: formData,
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      return response;
+    });
+};
 export default function CameraPic() {
-  let cameraRef = useRef();
-  const [hasCameraPermission, setHasCameraPermission] = useState();
-  const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
-  const [photo, setPhoto] = useState();
-
-  useEffect(() => {
-    (async () => {
-      const cameraPermission = await Camera.requestCameraPermissionsAsync();
-      const mediaLibraryPermission =
-        await MediaLibrary.requestPermissionsAsync();
-      setHasCameraPermission(cameraPermission.status === "granted");
-      setHasMediaLibraryPermission(mediaLibraryPermission.status === "granted");
-    })();
+  React.useEffect(() => {
+    takeAndUploadPhotoAsync();
   }, []);
 
-  if (hasCameraPermission === undefined) {
-    return <Text>Requesting permissions...</Text>;
-  } else if (!hasCameraPermission) {
-    return (
-      <Text>
-        Permission for camera not granted. Please change this in settings.
-      </Text>
-    );
-  }
-
-  let takePic = async () => {
-    let options = {
-      quality: 1,
-      base64: true,
-      exif: false,
-    };
-
-    let newPhoto = await cameraRef.current.takePictureAsync(options);
-    setPhoto(newPhoto);
-  };
-
-  if (photo) {
-    let sharePic = () => {
-      shareAsync(photo.uri).then(() => {
-        setPhoto(undefined);
-      });
-    };
-
-    let savePhoto = () => {
-      MediaLibrary.saveToLibraryAsync(photo.uri).then(() => {
-        setPhoto(undefined);
-      });
-    };
-
-    return (
-      <SafeAreaView style={styles.container}>
-        <Image
-          style={styles.preview}
-          source={{ uri: "data:image/jpg;base64," + photo.base64 }}
-        />
-        <Button title="Share" onPress={sharePic} />
-        {hasMediaLibraryPermission ? (
-          <Button title="Save" onPress={savePhoto} />
-        ) : undefined}
-        <Button title="Discard" onPress={() => setPhoto(undefined)} />
-      </SafeAreaView>
-    );
-  }
-
   return (
-    <View style={{ height: height / 2, marginTop: 200 }}>
-      <Camera style={styles.container} ref={cameraRef}>
-        <View style={styles.buttonContainer}>
-          <Button title="Take Pic" onPress={takePic} />
-        </View>
-        <StatusBar style="auto" />
-      </Camera>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text style={{ color: "black" }}>Thanks for uploading the photo</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  buttonContainer: {
-    backgroundColor: "#fff",
-    alignSelf: "flex-end",
-  },
-  preview: {
-    alignSelf: "stretch",
-    flex: 1,
-  },
-});
