@@ -7,9 +7,9 @@ import {
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Button } from "react-native-paper";
-import Header from "./components/Header";
-import AppLoading from "expo-app-loading";
+// import { Button } from "react-native-paper";
+// import Header from "./components/Header";
+// import AppLoading from "expo-app-loading";
 import {
   MaterialCommunityIcons,
   Foundation,
@@ -67,25 +67,27 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={{ marginTop: 20 }}>
-        <View style={styles.btnContainer}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              position: "absolute",
-              left: 20,
-              paddingTop: 5,
-            }}
-          >
-            <FontAwesome5 name="tasks" size={85} color="white" />
-            <Text style={styles.btnText}>Quizzes</Text>
-            <Text style={[styles.innertxt, { left: width / 3.7 }]}>
-              Take quizzes
-            </Text>
+      <TouchableOpacity onPress={() => navigation.navigate("Quizzes")}>
+        <View style={{ marginTop: 20 }}>
+          <View style={styles.btnContainer}>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                position: "absolute",
+                left: 20,
+                paddingTop: 5,
+              }}
+            >
+              <FontAwesome5 name="tasks" size={85} color="white" />
+              <Text style={styles.btnText}>Quizzes</Text>
+              <Text style={[styles.innertxt, { left: width / 3.7 }]}>
+                Take quizzes
+              </Text>
+            </View>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

@@ -8,6 +8,7 @@ import SignUp from "./src/SignUp";
 import Home from "./src/Home";
 import Header from "./src/components/Header";
 import CameraPic from "./src/Camera";
+import Quiz from "./src/Quiz";
 import SavedNotes from "./src/SavedNotes";
 
 export default function App() {
@@ -28,6 +29,11 @@ export default function App() {
         <Stack.Screen
           name="Camera"
           component={CameraPic}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Quizzes"
+          component={Quiz}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -63,11 +69,11 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+// });
