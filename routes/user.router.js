@@ -156,7 +156,7 @@ router.post('/uploadImage',upload.single('image'),async (req,res)=>{
 
                         res.status(200).send({
                             Text:text,
-                            url:"https://mlhriddhiman.herokuapp.com"
+                            url:"https://mlhriddhiman.herokuapp.com/"
                         })
                     }
                     else if(text.toLowerCase().includes("brain")){
@@ -170,6 +170,11 @@ router.post('/uploadImage',upload.single('image'),async (req,res)=>{
                         res.status(200).send({
                             Text:text,
                             url:"https://mlhriddhiman.herokuapp.com/index3.html"
+                        })
+                    }
+                    else{
+                        res.status(400).send({
+                            Text:'Invalid Entry'
                         })
                     }
                 }
