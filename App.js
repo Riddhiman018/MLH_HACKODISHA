@@ -8,6 +8,7 @@ import SignUp from "./src/SignUp";
 import Home from "./src/Home";
 import Header from "./src/components/Header";
 import CameraPic from "./src/Camera";
+import Quiz from "./src/Quiz";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -30,6 +31,11 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Quizzes"
+          component={Quiz}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           options={{
             headerStyle: {
               backgroundColor: "#00D37F",
@@ -48,11 +54,11 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+// });
