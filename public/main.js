@@ -112,7 +112,7 @@ canvas.addEventListener('dblclick',function(){
         const factmesh = new THREE.Mesh(factGeometry,[
             new THREE.MeshPhongMaterial({color:0xed4008})
           ])
-        factmesh.position.set(-3, -2,0.2)
+        factmesh.position.set(-2, -1.5,0.2)
         scene.add(factmesh)
     })
 })
