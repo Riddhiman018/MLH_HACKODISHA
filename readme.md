@@ -27,10 +27,21 @@ After installing yarn, navigate to project directory, run:
 yarn install
 expo start
 ```
+## Tech Stack
+![Tech Stack](https://user-images.githubusercontent.com/85727563/189526200-0a0ce4db-e1fc-4679-b286-dd0988a573e5.png)
+
+## Components and Workflow
+
+![Components](https://user-images.githubusercontent.com/85727563/189526224-28dfab8c-1b66-4293-8c09-ac90361effd4.jpg)
+
+
 ## Interface:
 
 ![Frame](https://user-images.githubusercontent.com/85727563/189524545-2241e279-6deb-40d4-b626-8348d2c83ea9.png)
 
+![3 - Home Screen](https://user-images.githubusercontent.com/85727563/189526182-db831fb7-4b3e-4f39-bc00-5af9da19f2b5.png)
+
+![4a - Scan](https://user-images.githubusercontent.com/85727563/189526258-cf734915-4c78-46b8-b5ab-45cd25b23dee.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
