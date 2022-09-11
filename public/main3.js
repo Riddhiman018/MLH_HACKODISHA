@@ -9,6 +9,7 @@ const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeig
 const renderer = new THREE.WebGLRenderer({
   canvas:document.querySelector('#bg')
 })
+const canvas = document.querySelector('#bg')
 const username = new URL(window.location).searchParams.get('username')
 const submitBtn = document.querySelector('.submitNotes')
 console.log(document.querySelector('#notes').textContent)
@@ -108,4 +109,19 @@ function animate(){
   requestAnimationFrame(animate)
   renderer.render(scene,camera)
 }
+canvas.addEventListener('dblclick',function(){
+    const fact = new FontLoader()
+    fact.load('./Roseritta_Regular.json',function(font){
+        const factGeometry = new TextGeometry('Fact:\nBrain has the control of the entire cognitive system\nof the body',{
+            font:font,
+            size:0.1,
+            height:0.8
+        })
+        const factmesh = new THREE.Mesh(factGeometry,[
+            new THREE.MeshPhongMaterial({color:0xed4008})
+          ])
+        factmesh.position.set(-1, -0.75,0.3)
+        scene.add(factmesh)
+    })
+})
 animate()
