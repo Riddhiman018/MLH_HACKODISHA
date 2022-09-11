@@ -34,6 +34,13 @@ expo start
 
 ![Components](https://user-images.githubusercontent.com/85727563/189526224-28dfab8c-1b66-4293-8c09-ac90361effd4.jpg)
 
+##Video intro
+
+
+https://user-images.githubusercontent.com/85727563/189533309-4e9d7894-d592-49ea-bff0-ee7c16f005cd.mp4
+
+
+
 
 ## Interface:
 
