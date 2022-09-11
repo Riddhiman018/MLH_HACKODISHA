@@ -64,6 +64,7 @@ router.post('/register',async (req,res,next)=>{
 })
 router.post('/login',async (req,res,next)=>{
     //get username
+    console.log(req.body)
     try {
         const usr = await usrschema.findOne({
             username:req.body.username
