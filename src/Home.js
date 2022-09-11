@@ -16,6 +16,7 @@ import {
   FontAwesome5,
 } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
+import RecentSearch from "./components/RecentSearch";
 
 const { height, width } = Dimensions.get("screen");
 
@@ -24,6 +25,8 @@ const Home = ({ navigation }) => {
     "Poppins-Light": require("../assets/fonts/Poppins-Light.ttf"),
     "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
   });
+
+  const recentSearches = ["Brain", "Heart", "Lungs"];
 
   return (
     <SafeAreaView>
@@ -86,6 +89,26 @@ const Home = ({ navigation }) => {
           </View>
         </View>
       </TouchableOpacity>
+      {/* Recent Searches */}
+      <View style={styles.recentSearchesContainer}>
+        <Text style={styles.recentSearches}>Recent Searches</Text>
+        <View style={styles.recentSearchesBtnContainer}>
+          <RecentSearch text="Brain" />
+          <RecentSearch text="Heart" />
+          <RecentSearch text="Lungs" />
+          <RecentSearch text="Eyes" />
+        </View>
+        <View style={styles.recentSearchesBtnContainer}>
+          <RecentSearch text="Small Intestine" />
+          <RecentSearch text="Liver" />
+          <RecentSearch text="Ears" />
+        </View>
+        <View style={styles.recentSearchesBtnContainer}>
+          <RecentSearch text="Limbs" />
+          <RecentSearch text="Food Pipe" />
+          <RecentSearch text="Teeth" />
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -116,5 +139,17 @@ const styles = StyleSheet.create({
     top: height / 16.5,
     left: width / 3.7,
     fontFamily: "Poppins-Light",
+  },
+  recentSearchesContainer: {
+    margin: 20,
+  },
+  recentSearchesBtnContainer: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-around",
+  },
+  recentSearches: {
+    fontSize: 25,
+    fontWeight: "bold",
   },
 });
