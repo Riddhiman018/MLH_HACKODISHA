@@ -6,6 +6,7 @@ import {TextGeometry} from './jsm/geometries/TextGeometry.js'
 
 const username = new URL(window.location).searchParams.get('username')
 const submitBtn = document.querySelector('.submitNotes')
+const canvas = document.querySelector('#bg')
 console.log(document.querySelector('#notes').textContent)
 console.log(submitBtn)
 submitBtn.addEventListener('click',async function(e){
@@ -38,7 +39,6 @@ const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeig
 const renderer = new THREE.WebGLRenderer({
   canvas:document.querySelector('#bg')
 })
-
 renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth,window.innerHeight)
 camera.position.setZ(5)
@@ -101,5 +101,19 @@ function animate(){
   requestAnimationFrame(animate)
   renderer.render(scene,camera)
 }
-
+canvas.addEventListener('dblclick',function(){
+    const fact = new FontLoader()
+    fact.load('./Roseritta_Regular.json',function(font){
+        const factGeometry = new TextGeometry('Fact:\nHeart pumps blood to all organs\nof the body',{
+            font:font,
+            size:0.1,
+            height:0.8
+        })
+        const factmesh = new THREE.Mesh(factGeometry,[
+            new THREE.MeshPhongMaterial({color:0xed4008})
+          ])
+        factmesh.position.set(-3, -2,0.2)
+        scene.add(factmesh)
+    })
+})
 animate()
