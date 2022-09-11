@@ -149,8 +149,30 @@ router.post('/uploadImage',upload.single('image'),async (req,res)=>{
         tesseract.recognize('uploads/'+req.file.filename,
         'eng',
         {logger:m=>console.log(m)}).then(({data:{text}})=>{
-            res.status(200).send({
-                Text:text
+            fs.unlink('uploads/'+req.file.filename,function(err){
+                if(err)throw err
+                else{
+                    if(text.toLowerCase().includes("heart")){
+
+                        res.status(200).send({
+                            Text:text,
+                            url:"https://mlhriddhiman.herokuapp.com"
+                        })
+                    }
+                    else if(text.toLowerCase().includes("brain")){
+                        res.status(200).send({
+                            Text:text,
+                            url:"https://mlhriddhiman.herokuapp.com/index2.html"
+                        })
+                        
+                    }
+                    else if(text.toLowerCase().includes("eyes")||text.toLowerCase().includes("eye")){
+                        res.status(200).send({
+                            Text:text,
+                            url:"https://mlhriddhiman.herokuapp.com/index3.html"
+                        })
+                    }
+                }
             })
         })
     }catch(error){
