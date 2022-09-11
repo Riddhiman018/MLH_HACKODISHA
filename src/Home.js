@@ -48,21 +48,23 @@ const Home = ({ navigation }) => {
       </View>
       <View style={{ marginTop: 20 }}>
         <View style={styles.btnContainer}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              position: "absolute",
-              left: 20,
-              paddingTop: 5,
-            }}
-          >
-            <Foundation name="clipboard-pencil" size={85} color="white" />
-            <Text style={styles.btnText}>Saved Notes</Text>
-            <Text style={[styles.innertxt, { left: width / 4.6 }]}>
-              View saved notes
-            </Text>
-          </View>
+          <TouchableOpacity onPress={() => navigation.navigate("Notes")}>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                position: "absolute",
+                left: 20,
+                paddingTop: 5,
+              }}
+            >
+              <Foundation name="clipboard-pencil" size={85} color="white" />
+              <Text style={styles.btnText}>Saved Notes</Text>
+              <Text style={[styles.innertxt, { left: width / 4.6 }]}>
+                View saved notes
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={{ marginTop: 20 }}>

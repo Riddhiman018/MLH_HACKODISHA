@@ -101,6 +101,7 @@ const SignUp = ({ navigation }) => {
                     });
                   try {
                     await AsyncStorage.setItem("username", values.username);
+                    console.log("username saved", values.username);
                   } catch (err) {
                     console.log(err);
                   }

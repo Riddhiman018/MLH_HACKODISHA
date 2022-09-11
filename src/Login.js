@@ -11,7 +11,8 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput, Button } from "react-native-paper";
 import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const { height, width } = Dimensions.get("window");
 
@@ -21,7 +22,7 @@ const Login = ({ navigation }) => {
   });
 
   const [values, setValues] = useState({
-    email: "",
+    username: "",
     password: "",
   });
   return (
@@ -44,8 +45,11 @@ const Login = ({ navigation }) => {
                 label="Email"
                 placeholder="Enter your email"
                 theme={{ fonts: { regular: "Poppins-Light" } }}
-                value={values.email}
-                onChangeText={(text) => setValues({ ...values, email: text })}
+                value={values.username}
+                keyboardType="email-address"
+                onChangeText={(text) =>
+                  setValues({ ...values, username: text })
+                }
                 mode="outlined"
               />
             </View>
@@ -66,7 +70,29 @@ const Login = ({ navigation }) => {
 
           <View style={styles.btnContainer}>
             <Button
-              onPress={() => navigation.navigate("Home")}
+              onPress={async () => {
+                if (values.username && values.password) {
+                  axios
+                    .post("https://mlhriddhiman.herokuapp.com/login", values)
+                    .then((res) => {
+                      console.log(res.data);
+                      if (res.data.Message === "User verified") {
+                        AsyncStorage.setItem("username", values.username);
+                        navigation.navigate("Home");
+                      }
+                    })
+
+                    .catch((err) => {
+                      alert(err.response.data.Message);
+                    });
+                } else if (values.username === "") {
+                  alert("Please enter your email");
+                } else if (values.password === "") {
+                  alert("Please enter your password");
+                } else {
+                  alert("Please enter your email and password");
+                }
+              }}
               labelStyle={{
                 fontSize: 20,
                 paddingTop: 8,

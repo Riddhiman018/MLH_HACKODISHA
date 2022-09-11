@@ -6,7 +6,7 @@ import AppLoading from "expo-app-loading";
 
 const { height, width } = Dimensions.get("screen");
 
-const Header = () => {
+const Header = ({ title }) => {
   const [fontsLoaded] = useFonts({
     PoppinsSemiBold: require("../../assets/fonts/Poppins-SemiBold.ttf"),
   });
@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <View>
       <View>
-        <Text style={styles.headerText}>Imagine 3D</Text>
+        <Text style={styles.headerText}>{title}</Text>
       </View>
     </View>
   );
