@@ -29,6 +29,7 @@ expo start
 ```
 ## Interface:
 
+![Frame](https://user-images.githubusercontent.com/85727563/189524545-2241e279-6deb-40d4-b626-8348d2c83ea9.png)
 
 
 ## License
