@@ -5,145 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
     <style>
-      :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #00D37F;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-canvas {
-  position: relative;
-  border: 3px solid white;
-  max-width: 1200px;
-  max-height: 800px;
-  border-radius: 20px;
-}
-main{
-  position: absolute;
-  color: white;
-}
-a:hover {
-  color: #535bf2;
-}
-body{
-  display: flex;
-  padding: 30px;
-  flex-direction: column;
-}
-.contentContainer{
-  display: flex;
-  position: absolute;
-  padding: 100px;
-  color: white;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-.textContainer{
-    border: 2px solid white;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  max-width: 1200px;
-  padding: 10px;
-  margin: 20px;
-  background: #707070;
-  justify-content: center;
-  align-items: center;
-}
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: blue;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: green;
+        :root {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #00D37F;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+  }
+  canvas {
+    position: relative;
+    border: 3px solid white;
+    max-width: 1200px;
+    max-height: 800px;
+    border-radius: 20px;
+  }
+  main{
+    position: absolute;
+    color: #AFF8C8;
   }
   a:hover {
-    color: #747bff;
+    color: #535bf2;
   }
+  body{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .contentContainer{
+    display: flex;
+    position: absolute;
+    padding: 100px;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .textContainer{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1600px;
+    padding: 10px;
+    margin: 20px;
+    background: #00D37F;
+    justify-content: center;
+    align-items: center;
+  }
+  html,body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+  
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    color:#707070;
+    font-family: poppins;
+  }
+  
+  #app {
+    max-width: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.vanilla:hover {
+    filter: drop-shadow(0 0 2em #f7df1eaa);
+  }
+  
+  .card {
+    padding: 2em;
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  
   button {
-    background-color: green;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #AFF8C8;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color:#707070;
   }
-  canvas{
-    max-width: 300px;
+  button:hover {
+    border-color:#AFF8C8;
   }
-}
-    </style>
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  @media screen and (max-width: 500px){
+    :root {
+      color: #213547;
+      background-color:#00D37F;
+    }
+    a:hover {
+      color: #AFF8C8;
+    }
+    button {
+      background-color:#AFF8C8 ;
+  
+    }
+    canvas{
+      max-width: 300px;
+    }
+    .textContainer{
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      max-width: 1600px;
+      padding: 20px;
+      margin: 20px;
+      background: #00D37F;
+    }
+  
+    .contentContainer{
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      background: white;
+      position: absolute;
+      right:-105px;
+      padding: 100px;
+      color: white;
+    }
+    .textContainer{
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      background: #00D37F;
+  
+    }
+  
+  }
+      </style>
      <script type="importmap">
       {
           "imports":{
