@@ -52,7 +52,7 @@ const controls = new OrbitControls(camera,renderer.domElement)
 const aortaText = new FontLoader()
 const ventricularText = new FontLoader()
 const loader = new GLTFLoader()
-loader.load('./brain/scene.gltf',function(glb){
+loader.load('./brain/scene2.gltf',function(glb){
   console.log(glb)
   glb.scene.scale.set(0.25, 0.25, 0.25)
   scene.add(glb.scene)
@@ -92,7 +92,7 @@ ventricularText.load('./Roseritta_Regular.json',function (font){
 // const size = 10;
 // const divisions = 10;
 const light = new THREE.PointLight(0xffffff,5)
-light.position.set(0,100,40)
+light.position.set(0,50,40)
 scene.add(light)
 const light3 = new THREE.PointLight(0xffffff,5)
 light3.position.set(0,-100,40)

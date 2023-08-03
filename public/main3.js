@@ -53,7 +53,7 @@ const controls = new OrbitControls(camera,renderer.domElement)
 const eyeText = new FontLoader()
 const irisText = new FontLoader()
 const loader = new GLTFLoader()
-loader.load('./eyes/scene.gltf',function(glb){
+loader.load('./eyes/scene2.gltf',function(glb){
   console.log(glb)
   glb.scene.scale.set(50, 50, 50)
   glb.scene.rotation.set(0, -185, 0)
