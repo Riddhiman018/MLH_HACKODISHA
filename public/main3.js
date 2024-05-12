@@ -93,18 +93,20 @@ irisText.load('./Roseritta_Regular.json',function (font){
 })
 // const size = 10;
 // const divisions = 10;
-const light = new THREE.PointLight(0xffffff,5)
-light.position.set(0,100,40)
-scene.add(light)
-const light3 = new THREE.PointLight(0xffffff,5)
-light3.position.set(0,-100,40)
-scene.add(light3)
-const light4 = new THREE.PointLight(0xffffff,1)
-light4.position.set(0,0,-40)
-scene.add(light4)
-const light5 = new THREE.PointLight(0xffffff,1)
-light5.position.set(0,0,-40)
-scene.add(light5)
+const light = new THREE.AmbientLight( 0x404040,10 ); // soft white light
+scene.add( light );
+// const light = new THREE.PointLight(0xffffff,5)
+// light.position.set(0,100,40)
+// scene.add(light)
+// const light3 = new THREE.PointLight(0xffffff,5)
+// light3.position.set(0,-100,40)
+// scene.add(light3)
+// const light4 = new THREE.PointLight(0xffffff,1)
+// light4.position.set(0,0,-40)
+// scene.add(light4)
+// const light5 = new THREE.PointLight(0xffffff,1)
+// light5.position.set(0,0,-40)
+// scene.add(light5)
 function animate(){
   requestAnimationFrame(animate)
   renderer.render(scene,camera)
