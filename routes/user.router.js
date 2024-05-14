@@ -153,6 +153,9 @@ router.post('/uploadImage',upload.single('image'),async (req,res)=>{
             fs.unlink('uploads/'+req.file.filename,function(err){
                 if(err)throw err
                 else{
+                    if(text){
+                        console.log(text);
+                    }
                     if(text.toLowerCase().includes("heart")){
 
                         res.status(200).send({
