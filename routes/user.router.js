@@ -157,20 +157,20 @@ router.post('/uploadImage',upload.single('image'),async (req,res)=>{
 
                         res.status(200).send({
                             Text:text,
-                            url:"https://mlhriddhiman.herokuapp.com/"
+                            url:"https://mlh-hackodisha.onrender.com/"
                         })
                     }
                     else if(text.toLowerCase().includes("brain")){
                         res.status(200).send({
                             Text:text,
-                            url:"https://mlhriddhiman.herokuapp.com/index2.html"
+                            url:"https://mlh-hackodisha.onrender.com/index2.html"
                         })
                         
                     }
                     else if(text.toLowerCase().includes("eyes")||text.toLowerCase().includes("eye")){
                         res.status(200).send({
                             Text:text,
-                            url:"https://mlhriddhiman.herokuapp.com/index3.html"
+                            url:"https://mlh-hackodisha.onrender.com/index3.html"
                         })
                     }
                     else{
